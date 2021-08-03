@@ -21,6 +21,7 @@ import org.springframework.batch.item.file.transform.Range;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
 import com.shi.springbatch.model.Address;
@@ -67,10 +68,10 @@ public class SpringBatchConfig {
 
 	
 	    @Bean
-		public FlatFileItemReader<Customer> itemReader(@Value("${input}")Resource resource){
+		public FlatFileItemReader<Customer> itemReader(){
 		
 			FlatFileItemReader<Customer> flatfileItemReader = new FlatFileItemReader<>();
-			flatfileItemReader.setResource(resource);
+			flatfileItemReader.setResource(new ClassPathResource("Contacts.csv"));
 			flatfileItemReader.setName("CSV-Reader");
 			flatfileItemReader.setLinesToSkip(1);
 			flatfileItemReader.setLineMapper(lineMapper());
@@ -102,10 +103,10 @@ public class SpringBatchConfig {
 	 
 	 
 	    @Bean
-		public FlatFileItemReader<Address> itemReader2(@Value("${input2}")Resource resource){
+		public FlatFileItemReader<Address> itemReader2(){
 		
 			FlatFileItemReader<Address> flatfileItemReader = new FlatFileItemReader<>();
-			flatfileItemReader.setResource(resource);
+			flatfileItemReader.setResource(new ClassPathResource("Addresses.dat"));
 			flatfileItemReader.setName("Address-Reader");
 			flatfileItemReader.setLineMapper(fixedLength());
 			return flatfileItemReader;
