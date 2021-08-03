@@ -97,7 +97,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>spring-batch</finalName>
+		<finalName>customer</finalName>
 	</build>
 	
 </project>

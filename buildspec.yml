@@ -10,6 +10,6 @@ phases:
       - echo Build Completed Successfully
 artifacts:
   files:
-    - target/spring-boot.jar
+    - target/customer.jar
   discard-paths: yes
       
